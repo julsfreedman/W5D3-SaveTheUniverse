@@ -35,8 +35,18 @@ class AlienSpaceShip {
 const interGalactic = new AlienSpaceShip("Intergalactic", 4, 3, 0.7);
 console.log(interGalactic);
 
-//while I'm thinking of alien spaceship names:  Aural Pleasure, Blazing Arrow, Cosmic Flows, planetHopper, spaceCase, galaxy warriors, infinity, solarShip, starryNight, Earth Shatterer, Abyss, Cosmic Jungle, Not a Meteorite,  Gravity Sucks, Universal Soldiers , Sonic Boom, Saturn Hoops, Alienaughts ,
+//while I'm thinking of alien spaceship names:  Astral Plane, Blazing Arrow, Cosmic Flows, planetHopper, spaceCase, galaxy warriors, infinity, solarShip, starryNight, Earth Shatterer, Abyss, Cosmic Jungle, Not a Meteorite,  Gravity Sucks, Universal Soldiers , Sonic Boom, Saturn Hoops, Alienaughts ,
 
 ussHelloWorld.attack(interGalactic); //  running the attack method and passing the alien ship through the function as the target
 console.log(interGalactic.hull); // yay! my one ship test works, so onto the next.
 // 1st commit to github
+
+//Make a
+
+const battle = (ussHelloWorld, interGalactic) => {};
+
+//***when I start fresh tomorrow, finish it with just the 2 ships and then go from there***
+
+//wait, stop, I think i only need ONE ship class and then instance of const USS Hello  World and instance of alien array object of 6 ships and use "this" for the attack method  and pass through which ship in the argument
+
+//after realizing that I wanted to try only one Class of Ship I started my code over on file js\script2.js
