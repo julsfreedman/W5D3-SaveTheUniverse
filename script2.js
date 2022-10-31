@@ -136,4 +136,8 @@ for (let i = 0; i < 6; i++) {
 console.log(interGalacticArray);
 //yay the printed array looks perfect! (lol, i did not get to use my alien spaceship names i came up with before, this way was much quicker.)
 
-//now it is 3am on Monday morning and i have to go to sleep, so tomorrow I need to replace the single ship with the array and delete the single ship and it's predefined property values and on from there...
+//now it is 3am on Monday morning and i have to go to sleep, so tomorrow I need to replace the single ship with the array and delete the single ship and it's predefined property values and I need to factor in Accuracy...
+//Example use of accuracy to determine a hit:
+//if (Math.random() < alien[0].accuracy) {
+//	console.log('You have been hit!');
+//}
