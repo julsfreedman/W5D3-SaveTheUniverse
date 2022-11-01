@@ -21,13 +21,13 @@ class Ship {
   }
 }
 
-const ussHelloWorld = new Ship("USS HelloWorld", 20, 5, 0.7);
+//const ussHelloWorld = new Ship("USS HelloWorld", 20, 5, 0.7);
 //console.log(ussHelloWorld);
 
-const interGalactic = new Ship("Intergalactic", 6, 3, 0.7);
+//const interGalactic = new Ship("Intergalactic", 6, 3, 0.7);
 //console.log(interGalactic);
 
-ussHelloWorld.attack(interGalactic);
+//ussHelloWorld.attack(interGalactic);
 
 //tested the attack on interGalctic with a hull of 4 and a hull of 6 and they both returned the proper console.log in the console
 
@@ -45,20 +45,20 @@ ussHelloWorld.attack(interGalactic);
 // //       target.attack(this.name);
 // //     }
 // //   }
-console.log(interGalactic);
-console.log(ussHelloWorld);
+//console.log(interGalactic);
+//console.log(ussHelloWorld);
 
-if (ussHelloWorld.hull <= 0) {
-  console.log(
-    `Sorry Earthlings, but your hull has reached ${ussHelloWorld.hull} and your Game is Over.`
-  );
-}
+// if (ussHelloWorld.hull <= 0) {
+//   console.log(
+//     `Sorry Earthlings, but your hull has reached ${ussHelloWorld.hull} and your Game is Over.`
+//   );
+// }
 
-if (interGalactic.hull <= 0) {
-  console.log(
-    `Sorry Aliens, but your hull has reached ${interGalactic.hull} and your Game is Over.`
-  );
-}
+// if (interGalactic.hull <= 0) {
+//   console.log(
+//     `Sorry Aliens, but your hull has reached ${interGalactic.hull} and your Game is Over.`
+//   );
+// }
 
 //but the directions say:
 // You attack the first alien ship
@@ -120,24 +120,77 @@ if (interGalactic.hull <= 0) {
 // this.hull = Math.floor(Math.random() * 4) + 3;
 // this.firepower = Math.floor(Math.random() * 3) + 2;
 // this.accuracy = (Math.floor(Math.random() * 3) + 6) / 10;
+//Math.floor(x) returns x rounded down to its nearest integer // Math.random() returns a random number between 0 and 1 (not including 1)
 
-const interGalacticArray = [];
+// const interGalacticArray = [];
 
-for (let i = 0; i < 6; i++) {
-  interGalacticArray.push(
-    new Ship(
-      "InterGalactic " + (i + 1),
-      Math.floor(Math.random() * 4) + 3,
-      Math.floor(Math.random() * 3) + 2,
-      Math.floor(Math.random() * 3 + 6) / 10
-    )
-  );
-}
-console.log(interGalacticArray);
+// for (let i = 0; i < 6; i++) {
+//   interGalacticArray.push(
+//     new Ship(
+//       "InterGalactic " + (i + 1),
+//       Math.floor(Math.random() * 4) + 3,
+//       Math.floor(Math.random() * 3) + 2,
+//       Math.floor(Math.random() * 3 + 6) / 10
+//     )
+//   );
+// }
+// console.log(interGalacticArray);
 //yay the printed array looks perfect! (lol, i did not get to use my alien spaceship names i came up with before, this way was much quicker.)
 
-//now it is 3am on Monday morning and i have to go to sleep, so tomorrow I need to replace the single ship with the array and delete the single ship and it's predefined property values and I need to factor in Accuracy...
-//Example use of accuracy to determine a hit:
-//if (Math.random() < alien[0].accuracy) {
-//	console.log('You have been hit!');
-//}
+//now it is 3am on Monday morning and i have to go to sleep, so tomorrow I need to replace the single ship with the array and delete the single ship and it's predefined property values and on from there...
+
+//for each loop for pushing array of aliens into the game.
+
+//I decided to add the random alien spaceship names I came up with earlier:
+
+// const names = [
+//   "InterGalactic",
+//   "AlieNaut",
+//   "PlanetHopper",
+//   "SpaceCase",
+//   "CosmicJungle",
+//   "EarthShatterer",
+// ];
+
+// const alienShipsArray = [];
+
+// for (let i = 0; i < names.length; i++) {
+//   alienShipsArray.push(
+//     new Ship(
+//       names[Math.floor(Math.random() * names.length)] + (i + 1), //added the +() to prevent reptition in name values per below notes
+//       Math.floor(Math.random() * 4) + 3,
+//       Math.floor(Math.random() * 3) + 2,
+//       Math.floor(Math.random() * 3 + 6) / 10
+//     )
+//   );
+// }
+//console.log(alienShipsArray);
+//above is creating 6 new arrays but the alien space ship name is repeating and I do not want that, so I went down a deep rabbit hole of Fisher-Yates shuffle algorithm, haveIt array, recursive functions, etc.. Until i realized I am running out of time, so I decided to use my original alien ship name generator of adding "+ (i + 1)" to the array.names and that is good enough for now, so even if an alien ship name repeats itself, it will at least have a differentiating number at the end of it.
+
+//couldn't help myself  and attemptd the Fisher Yates algorithm:
+const arr = [
+  "InterGalactic",
+  "AlieNaut",
+  "PlanetHopper",
+  "SpaceCase",
+  "CosmicJungle",
+  "EarthShatterer",
+];
+let i = arr.length;
+while (--i > 0) {
+  // shuffle algorithm here
+  let randIndex = Math.floor(Math.random() * (i + 1));
+  [arr[randIndex], arr[i]] = [arr[i], arr[randIndex]];
+}
+console.log(arr);
+
+//after all of this rabbit hole, I found my brain and realized that for my purposes in this game, a simple name[i] works!!  Shake my head!!  See next file, script3.js
+
+// let hp = 5
+
+//  function battle() {
+//     while (hp > 0) //for both players
+//     console.log('battling")
+//     hp--
+//  }
+//  battle()
